@@ -1,16 +1,20 @@
 import { readRecipes } from "../model/recipeModel.js";
 
-
-const data = readRecipes()
+const data = readRecipes();
 
 const controlId = (req, res, next) => {
-    const found = data.find((i) => i.id === req.params.id)
+    const found = data.find((i) => i.id === req.params.id);
 
     if (!found) {
-        return res.status(404).json({ message: 'Ardaığınız id li eleman bulunamadı' })
+        return res
+            .status(404)
+            .json({ message: "Aradığınız id'li eleman bulunamadı" });
     }
 
-    next()
-}
+    // req nesnesi içerisine bulunan ekle
+    req.foundRecipe = found;
 
-export default controlId
+    next();
+};
+
+export default controlId;

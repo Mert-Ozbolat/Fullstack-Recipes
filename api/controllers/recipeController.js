@@ -3,31 +3,33 @@ import crypto from 'crypto'
 import isInValid from './../utils/isInValid.js';
 
 const data = readRecipes()
-
+console.log('Tüm verielr', data)
 
 
 export const getAllRecipes = (req, res) => {
+    let recipes = [...data];
 
-    let recipes = [...data]
-
-    const search = req.query?.search.toLowerCase()
+    const search = req.query?.search?.toLowerCase();
 
     if (search) {
-        recipes = data.filter((recipe) => recipe.recipeName.toLowerCase().includes(search))
+        recipes = data.filter((recipe) =>
+            recipe.recipeName.toLowerCase().includes(search)
+        );
     }
 
     if (req.query.order) {
-        recipes.sort((a, b) => req.query.order === 'asc'
-            ? a.recipeTime - b.recipeTime
-            : b.recipeTime - a.recipeTime
-        )
+        recipes.sort((a, b) =>
+            req.query.order === "asc"
+                ? a.recipeTime - b.recipeTime
+                : b.recipeTime - a.recipeTime
+        );
     }
 
     res.status(200).json({
-        status: 'success',
+        status: "success",
         results: recipes.length,
-        recipes: recipes
-    })
+        recipes: recipes,
+    });
 };
 
 
@@ -49,17 +51,42 @@ export const createRecipes = (req, res) => {
 
     writeRecipes(data)
 
-    res.status(200).json({ message: 'Tarif Oluşturuldu', recipe: newRecipe })
+    res.status(201).json({ message: 'Tarif Oluşturuldu', recipe: newRecipe })
 };
 
 
 
-export const getRecipe = (req, res) => { };
+export const getRecipe = (req, res) => {
+    res
+        .status(200)
+        .json({ message: "Aradığınız tarif bulundu", found: req.foundRecipe });
+};
 
 
 
-export const deleteRecipes = (req, res) => { };
+export const deleteRecipes = (req, res) => {
+    const index = data.findIndex((i) => i.id === req.params.id)
+
+    data.splice(index, 1)
+
+    writeRecipes(data)
+
+    res.status(204).json({})
+};
 
 
 
-export const uptadeRecipes = (req, res) => { };
+export const uptadeRecipes = (req, res) => {
+    const updated = { ...req.foundRecipe, ...req.body }
+
+    const index = data.findIndex((i) => i.id === req.params.id)
+
+    data.splice(index, 1, updated)
+
+    writeRecipes(data)
+
+    res.status(200).json({
+        message: 'Tarif Başarıyla Güncellendi',
+        recipe: updated
+    })
+};

@@ -11,6 +11,7 @@ export const readRecipes = () => {
     }
 };
 
+
 export const writeRecipes = (data) => {
     try {
         fs.writeFileSync("./data.json", JSON.stringify(data));

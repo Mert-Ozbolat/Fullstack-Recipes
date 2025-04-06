@@ -1,6 +1,7 @@
 import {
     createRecipes,
     deleteRecipes,
+    getAllRecipes,
     getRecipe,
     uptadeRecipes,
 } from "../controllers/recipeController.js";
@@ -11,7 +12,7 @@ const router = express.Router();
 
 router
     .route("/api/v1/recipes")
-    .get(getRecipe)
+    .get(getAllRecipes)
     .post(createRecipes);
 
 router

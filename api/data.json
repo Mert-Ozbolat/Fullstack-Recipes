@@ -155,5 +155,35 @@
         "servingSuggestion": "Kısır, marul yaprakları ile birlikte servis edilebilir.",
         "id": "70759435-a81c-4a59-be09-236d378debd1",
         "image": "https://picsum.photos/seed/fc2b7f23-17c1-4ac3-8cdd-36e02c24fd55/500/500"
+    },
+    {
+        "recipeName": "Makarnaaaa",
+        "category": "Yemek",
+        "ingredients": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "instructions": [
+            "Mercimeği yıkayın ve süzün.",
+            "Soğanı doğrayın",
+            " havuç ve patatesi küçük küpler halinde kesin.",
+            "Sıvı yağı bir tencerede ısıtın",
+            " doğranmış soğanı ekleyin ve pembeleşene kadar kavurun.",
+            "Havuç ve patatesi ekleyip birkaç dakika daha kavurun.",
+            "Mercimeği ekleyin",
+            " suyu ekleyin ve kaynamaya bırakın.",
+            "Kaynadıktan sonra altını kısıp tencerenin kapağını kapatın",
+            " mercimekler iyice yumuşayana kadar pişirin.",
+            "Çorbayı blenderdan geçirin",
+            " tuz ve baharatları ekleyin.",
+            "Limon suyu ile servis yapın."
+        ],
+        "recipeTime": "25",
+        "servingSuggestion": "Mercimek çorbası, yanında taze ekmekle servis edilebilir.",
+        "image": "https://picsum.photos/501",
+        "id": "aecd3f83-f843-4857-a52f-fe4a1146cae8",
+        "photo": "https://picsum.photos/seed/15a802c1-24e3-4e4d-b087-106969af1f30/500/500"
     }
 ]
