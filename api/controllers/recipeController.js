@@ -44,7 +44,7 @@ export const createRecipes = (req, res) => {
     newRecipe = {
         ...newRecipe,
         id: crypto.randomUUID(),
-        photo: `https://picsum.photos/seed/${crypto.randomUUID()}/500/500`,
+        image: `https://picsum.photos/seed/${crypto.randomUUID()}/500/500`,
     }
 
     data.push(newRecipe)
