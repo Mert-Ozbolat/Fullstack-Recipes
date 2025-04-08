@@ -2,12 +2,13 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query';
 import api from '../api/index';
-import Loader from './../components/Loader';
-import Error from './../components/Error';
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaClock } from "react-icons/fa";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { MdEdit } from "react-icons/md";
+import DeleteButton from '../components/DeleteButton';
 
 
 const Detail = () => {
